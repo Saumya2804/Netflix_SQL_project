@@ -98,7 +98,7 @@ SELECT *
 FROM
 (
     SELECT 
-        UNNEST(STRING_TO_ARRAY(country, ',')) AS country,
+        TRIM(UNNEST(STRING_TO_ARRAY(country, ','))) AS country,
         COUNT(*) AS total_content
     FROM netflix
     GROUP BY 1
